@@ -1,0 +1,212 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background-color: antiquewhite;
+}
+
+.books{
+    width: 100%;
+    text-align: center;
+}
+
+.image img{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+}
+
+h1{
+    font-size: 50px;
+    font-weight: normal;
+    margin: 20px 0;
+    position: relative;
+}
+
+h1::before{
+    content: "";
+    width: 100px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: animate 0.8s linear infinite;
+}
+
+@keyframes animate{
+    0%{
+        width: 100px;
+    }
+    75%{
+        width: 150px;
+    }
+    100%{
+        width: 100px;
+    }
+}
+
+.menu{
+    background-color: azure;
+    height: 70px;
+    width: 80%;
+    margin: 40px auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    border-radius: 10px;
+    box-shadow:  0 0 0 10px grey;
+}
+
+label{
+    margin: 0 30px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+label:hover{
+    color: rgba(0, 0, 255, 0.501);
+}
+
+.books-content{
+    width: 80%;
+    margin: 10px auto;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-gap: 25px;
+}
+
+.img{
+    position: relative;
+    height: 250px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px grey;
+}
+
+.img img{
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+}
+
+.img::before{
+    content: "Book";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 25px;
+    color: antiquewhite;
+    font-weight: 900;
+    margin-top: -100px;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+.img:hover::before{
+    opacity: 1;
+    margin-top: 0;
+}
+
+.img:after{
+    content: "";
+    background-color: rgba(0,0,0,0.5);
+    height: 0%;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    border-radius: 15px;
+    bottom: 0;
+    transition: 0.5s;
+}
+
+.img:hover::after{
+    height: 100%;
+}
+
+input{
+    display: none;
+}
+
+#r1:checked ~ .books .books-content .img{
+    opacity: 1;
+}
+
+#r2:checked ~ .books .books-content .english-books{
+    opacity: 1;
+    position: relative;
+    transform: scale(1);
+}
+
+#r2:checked ~ .books .books-content .russian-books,
+#r2:checked ~ .books .books-content .reading-challenge,
+#r2:checked ~ .books .books-content .real-writing,
+#r2:checked ~ .books .books-content .gift{
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+}
+
+#r3:checked ~ .books .books-content .russian-books{
+    opacity: 1;
+    position: relative;
+    transform: scale(1);
+}
+#r3:checked ~ .books .books-content .english-books,
+#r3:checked ~ .books .books-content .reading-challenge,
+#r3:checked ~ .books .books-content .real-writing,
+#r3:checked ~ .books .books-content .gift{
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+}
+
+#r4:checked ~ .books .books-content .real-writing{
+    opacity: 1;
+    position: relative;
+    transform: scale(1);
+}
+
+#r4:checked ~ .books .books-content .english-books,
+#r4:checked ~ .books .books-content .russian-books,
+#r4:checked ~ .books .books-content .reading-challenge,
+#r4:checked ~ .books .books-content .gift{
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+}
+
+#r5:checked ~ .books .books-content .reading-challenge{
+    opacity: 1;
+    position: relative;
+    transform: scale(1);
+}
+
+#r5:checked ~ .books .books-content .russian-books,
+#r5:checked ~ .books .books-content .real-writing,
+#r5:checked ~ .books .books-content .english-books,
+#r5:checked ~ .books .books-content .gift{
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+}
+
+#r6:checked ~ .books .books-content .gift{
+    opacity: 1;
+    position: relative;
+    transform: scale(1);
+}
+
+#r6:checked ~ .books .books-content .russian-books,
+#r6:checked ~ .books .books-content .reading-challenge,
+#r6:checked ~ .books .books-content .real-writing,
+#r6:checked ~ .books .books-content .english-books{
+    opacity: 0;
+    position: absolute;
+    transform: scale(0);
+}
